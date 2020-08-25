@@ -47,13 +47,13 @@ ingress:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
   hosts:
-    - host: node-app.vamsiawstraining.com
+    - host: jenkins.vamsiawstraining.com
       paths:
         - path: /
   tls: 
   - secretName: jenkins-tls
     hosts:
-      - node-app.vamsiawstraining.com
+      - jenkins.vamsiawstraining.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
