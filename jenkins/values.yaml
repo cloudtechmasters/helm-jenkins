@@ -35,9 +35,10 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
-
+fullName: /jenkins
+svcPort: 8080
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 8080
 
 ingress:
@@ -46,15 +47,13 @@ ingress:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
   hosts:
-    - host: jenkins.vamsiawstraining.com 
+    - host: node-app.vamsiawstraining.com
       paths:
-      - path: /
-        fullName: /jenkins 
-        svcPort: 8080
+        - path: /
   tls: 
   - secretName: jenkins-tls
     hosts:
-      - jenkins.vamsiawstraining.com
+      - node-app.vamsiawstraining.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
